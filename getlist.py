@@ -4,15 +4,17 @@ import configparser
 import os
 from tkinter import Tk, filedialog
 
-def get_save_directory(default_filename):
-    print("Select a folder and file name to save the CSV files or press 'Cancel' to use the default Downloads folder and file name.")
+def get_save_directory(default_filename, initial_dir=None):
+    print(f"Select a folder and file name to save the {default_filename} file or press 'Cancel' to use the default Downloads folder and file name.")
 
     root = Tk()
     root.withdraw()
     root.update()
 
-    initial_dir = os.path.join(os.path.expanduser("~"), "Downloads")
-    save_path = filedialog.asksaveasfilename(initialdir=initial_dir, initialfile=default_filename, title="Choose a location to save the CSV files")
+    if initial_dir is None:
+        initial_dir = os.path.join(os.path.expanduser("~"), "Downloads")
+
+    save_path = filedialog.asksaveasfilename(initialdir=initial_dir, initialfile=default_filename, title=f"Choose a location to save the {default_filename} file")
     root.destroy()
 
     if not save_path:
@@ -67,15 +69,12 @@ if __name__ == "__main__":
     wallet_address = config.get("DEFAULT", "wallet_address")
     api_key = config.get("DEFAULT", "etherscan_api_key")
 
-    default_filename = "Wallet NFT List Export"
-    save_directory = get_save_directory(default_filename)
-
-    # Create a directory with the chosen file name
-    save_directory = os.path.join(os.path.dirname(save_directory), os.path.basename(save_directory))
-    os.makedirs(save_directory, exist_ok=True)
+    nft_csv_save_path = get_save_directory("nfts.csv")
+    token_reference_csv_save_path = get_save_directory("token_reference.csv", initial_dir=os.path.dirname(nft_csv_save_path))
 
     nfts = fetch_nfts(wallet_address, api_key)
-    write_nfts_to_csv(nfts, os.path.join(save_directory, "nfts.csv"))
-    write_token_reference_to_csv(nfts, os.path.join(save_directory, "token_reference.csv"))
+    write_nfts_to_csv(nfts, nft_csv_save_path)
+    write_token_reference_to_csv(nfts, token_reference_csv_save_path)
 
-    print(f"CSV files saved to: {save_directory}")
+    print(f"NFT CSV file saved to: {nft_csv_save_path}")
+    print(f"Token Reference CSV file saved to: {token_reference_csv_save_path}")

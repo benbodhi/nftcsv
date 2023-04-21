@@ -34,9 +34,11 @@ If you don't have Python installed or your version is older than 3.6, you can do
 
 `python3 getlist.py`
 
-3. The script will prompt you to select a folder and file name to save the CSV files. You can either choose a custom location and file name or press 'Cancel' to use the default Downloads folder and the file name "Wallet NFT List Export".
+3. The script will prompt you to select a folder and file name to save the `nfts.csv` file. You can either choose a custom location and file name or press 'Cancel' to use the default Downloads folder and file name.
 
-4. Once the script has completed, you'll find two new CSV files in the chosen directory: `nfts.csv` and `token_reference.csv`. The `nfts.csv` file contains the exported NFT data, including token addresses and IDs, while the `token_reference.csv` file contains the token addresses and their corresponding token names for reference.
+4. A second prompt will appear, allowing you to choose a folder and file name for the `token_reference.csv` file. It defaults to the folder chosen for the `nfts.csv` file. You can either choose a custom location and file name or press 'Cancel' to use the default folder and file name.
+
+5. Once the script has completed, the NFT and Token Reference CSV files will be saved to the chosen locations. The terminal will display the file paths of the saved CSV files.
 
 ## License
 
