@@ -2,6 +2,8 @@
 
 This Python script exports all NFTs held by a particular wallet to a CSV file, including token addresses and IDs. It also generates a second CSV file containing the token addresses and their corresponding token names for reference.
 
+I made this for the purpose of exporting a list of all NFTs held by a Safe for easy use of the CSV Airdrop app.
+
 ## Prerequisites
 
 Before you begin, make sure you have Python 3.6 or later installed on your system. You can check your Python version by running the following command in your terminal (Command Prompt on Windows, Terminal on macOS/Linux):
