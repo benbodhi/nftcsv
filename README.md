@@ -40,7 +40,7 @@ Now that you have Python installed and an Etherscan API key, you can proceed wit
 
 1. In the project directory, you'll find a file named `config.example.ini`. Make a copy of this file and name it `config.ini`.
 
-2. Open the config.ini file in a text editor and update the following placeholders with your actual information: replace your_wallet_address_here with the wallet address you want to scan for NFTs, and your_etherscan_api_key_here with the Etherscan API key you obtained earlier. Make sure to save the changes to the config.ini file before proceeding.
+2. Open the `config.ini` file in a text editor and update the following placeholders with your actual information: replace `your_wallet_address_here` with the wallet address you want to scan for NFTs, and `your_etherscan_api_key_here` with the Etherscan API key you obtained earlier. Make sure to save the changes to the `config.ini` file before proceeding.
 
 ## Usage
 
