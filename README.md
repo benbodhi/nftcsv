@@ -6,11 +6,25 @@ I made this for the purpose of exporting a list of all NFTs held by a Safe for e
 
 ## Prerequisites
 
-Before you begin, make sure you have Python 3.6 or later installed on your system. You can check your Python version by running the following command in your terminal (Command Prompt on Windows, Terminal on macOS/Linux):
+Before you begin, make sure you have the following:
+
+1. Python 3.6 or later installed on your system. You can check your Python version by running the following command in your terminal (Command Prompt on Windows, Terminal on macOS/Linux):
 
 `python3 --version`
 
 If you don't have Python installed or your version is older than 3.6, you can download the latest version from the official website: https://www.python.org/downloads/
+
+2. An Etherscan account with an API key:
+
+a. Sign up for a free Etherscan account at https://etherscan.io/register.
+
+b. Once you have registered and logged in, navigate to the "API-KEYs" tab in your account settings, or visit https://etherscan.io/myapikey directly.
+
+c. Click on "Add" to create a new API key. You can give it a name to help you remember its purpose (e.g., "NFT Wallet CSV Exporter").
+
+d. Copy the generated API key and keep it handy, as you'll need to add it to the `config.ini` file later.
+
+Now that you have Python installed and an Etherscan API key, you can proceed with the installation and configuration steps.
 
 ## Installation
 
