@@ -67,4 +67,4 @@ Now that you have Python installed and an Etherscan API key, you can proceed wit
 
 ## License
 
-This project is licensed under the terms of the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the terms of the DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE (WTFPL). See the [LICENSE](LICENSE) file for details.
