@@ -5,7 +5,7 @@ import os
 from tkinter import Tk, filedialog
 
 def get_save_directory(default_filename, initial_dir=None):
-    print(f"Select a folder and file name to save the {default_filename} file or press 'Cancel' to use the default Downloads folder and file name.")
+    print(f"Select a folder and file name to save the {default_filename} file or press 'Cancel' to cancel the operation.")
 
     root = Tk()
     root.withdraw()
@@ -17,10 +17,7 @@ def get_save_directory(default_filename, initial_dir=None):
     save_path = filedialog.asksaveasfilename(initialdir=initial_dir, initialfile=default_filename, title=f"Choose a location to save the {default_filename} file")
     root.destroy()
 
-    if not save_path:
-        save_path = os.path.join(initial_dir, default_filename)
-
-    return save_path
+    return save_path if save_path else None
 
 ETHERSCAN_API_URL = "https://api.etherscan.io/api"
 
@@ -69,12 +66,19 @@ if __name__ == "__main__":
     wallet_address = config.get("DEFAULT", "wallet_address")
     api_key = config.get("DEFAULT", "etherscan_api_key")
 
-    nft_csv_save_path = get_save_directory("nfts.csv")
-    token_reference_csv_save_path = get_save_directory("token_reference.csv", initial_dir=os.path.dirname(nft_csv_save_path))
-
     nfts = fetch_nfts(wallet_address, api_key)
-    write_nfts_to_csv(nfts, nft_csv_save_path)
-    write_token_reference_to_csv(nfts, token_reference_csv_save_path)
 
-    print(f"NFT CSV file saved to: {nft_csv_save_path}")
-    print(f"Token Reference CSV file saved to: {token_reference_csv_save_path}")
+    nft_csv_save_path = get_save_directory("nfts.csv")
+    if nft_csv_save_path is None:
+        print("NFT CSV file save operation cancelled by the user.")
+        token_reference_csv_save_path = get_save_directory("token_reference.csv")
+    else:
+        write_nfts_to_csv(nfts, nft_csv_save_path)
+        print(f"NFT CSV file saved to: {nft_csv_save_path}")
+        token_reference_csv_save_path = get_save_directory("token_reference.csv", initial_dir=os.path.dirname(nft_csv_save_path))
+
+    if token_reference_csv_save_path is None:
+        print("Token Reference CSV file save operation cancelled by the user.")
+    else:
+        write_token_reference_to_csv(nfts, token_reference_csv_save_path)
+        print(f"Token Reference CSV file saved to: {token_reference_csv_save_path}")
