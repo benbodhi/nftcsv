@@ -10,19 +10,19 @@ Before you begin, make sure you have the following:
 
 1. Python 3.6 or later installed on your system. You can check your Python version by running the following command in your terminal (Command Prompt on Windows, Terminal on macOS/Linux):
 
-`python3 --version`
+    `python3 --version`
 
-If you don't have Python installed or your version is older than 3.6, you can download the latest version from the official website: https://www.python.org/downloads/
+    If you don't have Python installed or your version is older than 3.6, you can download the latest version from the official website: https://www.python.org/downloads/
 
 2. An Etherscan account with an API key:
 
-a. Sign up for a free Etherscan account at https://etherscan.io/register.
+    a. Sign up for a free Etherscan account at https://etherscan.io/register.
 
-b. Once you have registered and logged in, navigate to the "API-KEYs" tab in your account settings, or visit https://etherscan.io/myapikey directly.
+    b. Once you have registered and logged in, navigate to the "API-KEYs" tab in your account settings, or visit https://etherscan.io/myapikey directly.
 
-c. Click on "Add" to create a new API key. You can give it a name to help you remember its purpose (e.g., "NFT Wallet CSV Exporter").
+    c. Click on "Add" to create a new API key. You can give it a name to help you remember its purpose (e.g., "NFT Wallet CSV Exporter").
 
-d. Copy the generated API key and keep it handy, as you'll need to add it to the `config.ini` file later.
+    d. Copy the generated API key and keep it handy, as you'll need to add it to the `config.ini` file later.
 
 Now that you have Python installed and an Etherscan API key, you can proceed with the installation and configuration steps.
 
@@ -34,7 +34,7 @@ Now that you have Python installed and an Etherscan API key, you can proceed wit
 
 3. Install the required Python libraries, `requests` and `tkinter`, by running the following command:
 
-`python3 -m pip install requests tkinter`
+    `python3 -m pip install requests tkinter`
 
 ## Configuration
 
@@ -48,7 +48,7 @@ Now that you have Python installed and an Etherscan API key, you can proceed wit
 
 2. Run the Python script by executing the following command:
 
-`python3 getlist.py`
+    `python3 getlist.py`
 
 3. The script will prompt you to select a folder and file name to save the `nfts.csv` file. You can either choose a custom location and file name or press 'Cancel' to use the default Downloads folder and file name.
 
