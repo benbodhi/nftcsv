@@ -1,6 +1,6 @@
 # NFT Wallet CSV Exporter
 
-This Python script exports all NFTs held by a particular wallet to a CSV file, including token addresses and IDs. It also generates a second CSV file containing the token addresses and their corresponding token names for reference.
+This Python script exports all NFTs held by one or multiple wallet addresses to separate CSV files, including token addresses and IDs. It also generates separate CSV files containing the token addresses, their corresponding token names, and how many are available for reference.
 
 I made this for the purpose of exporting a list of all NFTs held by a Safe for easy use of the CSV Airdrop app.
 
@@ -38,9 +38,18 @@ Now that you have Python installed and an Etherscan API key, you can proceed wit
 
 ## Configuration
 
+## Configuration
+
 1. In the project directory, you'll find a file named `config.example.ini`. Make a copy of this file and name it `config.ini`.
 
-2. Open the `config.ini` file in a text editor and update the following placeholders with your actual information: replace `your_wallet_address_here` with the wallet address you want to scan for NFTs, and `your_etherscan_api_key_here` with the Etherscan API key you obtained earlier. Make sure to save the changes to the `config.ini` file before proceeding.
+2. Open the `config.ini` file in a text editor and update the following placeholders with your actual information: replace `wallet_address_here` with the wallet address or addresses you want to scan for NFTs (separate multiple addresses with commas), and `your_etherscan_api_key_here` with the Etherscan API key you obtained earlier. Make sure to save the changes to the `config.ini` file before proceeding.
+
+   Example for multiple wallet addresses:
+   ```
+   [DEFAULT]
+    etherscan_api_key = your_etherscan_api_key_here
+    wallet_addresses = wallet_address1_here,wallet_address2_here ; accepts comma-separated list for multiple at once
+    ```
 
 ## Usage
 
@@ -50,11 +59,11 @@ Now that you have Python installed and an Etherscan API key, you can proceed wit
 
     `python3 getlist.py`
 
-3. The script will prompt you to select a folder and file name to save the `nfts.csv` file. You can either choose a custom location and file name or press 'Cancel' to use the default Downloads folder and file name.
+3. The script will prompt you to select a folder and file name to save the `nfts.csv` file for each wallet address. You can either choose a custom location and file name or press 'Cancel' to cancel the operation.
 
-4. A second prompt will appear, allowing you to choose a folder and file name for the `token_reference.csv` file. It defaults to the folder chosen for the `nfts.csv` file. You can either choose a custom location and file name or press 'Cancel' to use the default folder and file name.
+4. The script will then prompt you to select a folder and file name for the `token_reference.csv` file for each wallet address. It defaults to the folder chosen for the `nfts.csv` file. You can either choose a custom location and file name or press 'Cancel' to cancel the operation.
 
-5. Once the script has completed, the NFT and Token Reference CSV files will be saved to the chosen locations. The terminal will display the file paths of the saved CSV files.
+5. Once the script has completed, the NFT and Token Reference CSV files will be saved to the chosen locations for each wallet address. The terminal will display the file paths of the saved CSV files.
 
 ## License
 
